@@ -1,0 +1,19 @@
+
+language: python
+
+python:
+  - "3.6.5"
+
+before_script:
+  - psql -c 'CREATE DATABASE "my-diary";' -U postgres
+  - psql -c "CREATE USER kelvin WITH PASSWORD 'spongebob' createdb;" -U postgres
+
+
+install:
+  - pip install -r requirements.txt
+# command to run tests
+script:
+  - python -m pytest --cov-report term-missing --cov=diary
+
+after_success:
+     - coveralls
