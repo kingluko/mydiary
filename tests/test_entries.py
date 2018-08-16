@@ -157,7 +157,7 @@ class TestEntries(BaseTestCase):
             headers=header)
         self.assertEqual(response.status_code, 404)
 
-    def test_put_invalid_entry(self):
+    def test_put_entry(self):
         self.client.post(
             signup_url,
             data=json.dumps(self.signup_data),
@@ -172,13 +172,8 @@ class TestEntries(BaseTestCase):
         header = {
             "Content-Type": "application/json",
             "x-access-token": token}
-        # post entry
-        self.client.post(
-            '/api/v1/entries',
-            content_type='application/json',
-            headers=header, data=json.dumps(self.entry))
         response = self.client.put(
-            '/api/v1/entries/5',
+            '/api/v1/entries/0',
             content_type='application/json',
             headers=header, data=json.dumps({"title": "haha", "story": "check"}))
         self.assertEqual(response.status_code, 404)
@@ -198,11 +193,6 @@ class TestEntries(BaseTestCase):
         header = {
             "Content-Type": "application/json",
             "x-access-token": token}
-        # post entry
-        self.client.post(
-            '/api/v1/entries',
-            content_type='application/json',
-            headers=header, data=json.dumps(self.entry))
         response = self.client.delete(
             '/api/v1/entries/5',
             content_type='application/json',
