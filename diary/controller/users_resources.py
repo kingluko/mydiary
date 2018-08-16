@@ -102,13 +102,11 @@ class SigninResource(Resource):
                         str(Config.SECRET))
                     return {'message': 'You have successfully logged in',
                             'token': token.decode('UTF-8')}, 201
-                    # FIXME
-                    # Assign user token and login
                 else:
                     return {'message': 'Invalid password'}, 400
             else:
                 return {'message': 'User not found'}, 400
-
+            # close database connection
             db.close()
         else:
             return {'message': 'Please enter login details'}
