@@ -36,5 +36,6 @@ class DbConnection():
                      name VARCHAR(100), email VARCHAR(100),
                      username VARCHAR(30), password VARCHAR(100));""")
         self.query("""CREATE TABLE IF NOT EXISTS entries(entry_id serial,
-                     user_id INTEGER REFERENCES users(id), title VARCHAR(200),
-                     story TEXT, date_created TIMESTAMP DEFAULT NOW());""")
+                     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+                     title VARCHAR(200),
+                    story TEXT, date_created TIMESTAMP DEFAULT NOW());""")
