@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/kingluko/mydiary.svg?branch=develop)](https://travis-ci.org/kingluko/mydiary) [![Coverage Status](https://coveralls.io/repos/github/kingluko/mydiary/badge.svg?branch=develop)](https://coveralls.io/github/kingluko/mydiary?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/73babce84d3a9e2bc8d1/maintainability)](https://codeclimate.com/github/kingluko/mydiary/maintainability)
 
 # My- Diary
 This is an Andela Bootcamp Challenge that provides a platform in which users can pen down their thoughts and feelings
@@ -13,13 +13,13 @@ This project contains the following endpoints for the API
 
 | **GET /entries** | Fetch all entries |
 
-| **GET /entries/<entryId>** | Fetch a single entry |
+| **GET /entries/entryId** | Fetch a single entry |
 
 |**POST /entries**| Create an entry |
 
-| **PUT /entries/<entryId>** | Modify an entry |
+| **PUT /entries/entryId** | Modify an entry |
 
-| **DELETE /entries/<entryId>** | Delete an Entry|
+| **DELETE /entries/entryId** | Delete an Entry|
 
 # Prereqisites
 
