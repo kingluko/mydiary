@@ -44,6 +44,4 @@ class BaseTestCase(unittest.TestCase):
         self.signin_url = '/api/v1/auth/signin'
 
     def tearDown(self):
-        # db.query("DELETE FROM entries WHERE title=%s", [self.entry_update["title"]])
-        # db.query("DELETE FROM entries WHERE title=%s", [self.entry["title"]])
         db.query("DELETE FROM users WHERE username=%s", [self.signin_data["username"]])
