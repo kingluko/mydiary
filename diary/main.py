@@ -2,6 +2,8 @@ from flask import Flask
 from flask_restful import Api, Resource
 from config import app_config
 from diary.models.db import DbConnection
+from flask_cors import CORS
+
 
 db = DbConnection()
 
@@ -11,6 +13,7 @@ def create_app(configuration):
 
     app = Flask(__name__)
     app.config.from_object(app_config[configuration])
+    CORS(app)
     # creates tables in the database
     db.create_tables()
 
