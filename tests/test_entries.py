@@ -157,6 +157,33 @@ class TestEntries(BaseTestCase):
             headers=header)
         self.assertEqual(response.status_code, 404)
 
+    def test_duplicate_entries(self):
+        # sign up
+        self.client.post(
+            signup_url,
+            data=json.dumps(self.signup_data),
+            content_type='application/json')
+        # sign in
+        rs = self.client.post(
+                signin_url,
+                data=json.dumps(self.signin_data),
+                content_type='application/json')
+        rp = json.loads(rs.get_data(as_text=True))
+        token = rp.get("token")
+        header = {
+            "Content-Type": "application/json",
+            "x-access-token": token}
+        # post entry
+        self.client.post(
+            '/api/v1/entries',
+            content_type='application/json',
+            headers=header, data=json.dumps(self.entry))
+        response = self.client.post(
+            '/api/v1/entries',
+            content_type='application/json',
+            headers=header, data=json.dumps(self.entry))
+        self.assertEqual(response.status_code, 403)
+
     def test_put_entry(self):
         self.client.post(
             signup_url,
