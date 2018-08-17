@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/kingluko/mydiary.svg?branch=develop)](https://travis-ci.org/kingluko/mydiary) [![Coverage Status](https://coveralls.io/repos/github/kingluko/mydiary/badge.svg?branch=develop)](https://coveralls.io/github/kingluko/mydiary?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/73babce84d3a9e2bc8d1/maintainability)](https://codeclimate.com/github/kingluko/mydiary/maintainability)
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
-
 # My- Diary
 This is an Andela Bootcamp Challenge that provides a platform in which users can pen down their thoughts and feelings
 # Contains
