@@ -1,0 +1,325 @@
+/*GLOBAL */
+html{
+    height: 100%;
+}
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;    
+    background-position: center;
+               
+    margin: auto;
+    text-align: center;    
+}
+/* HOMEPAGE*/
+/* heading */
+.container h1{
+    font-size: 120px;
+    font-family: 'Chela One', Arial, Helvetica, sans-serif;
+    letter-spacing: 0.1em;  
+    padding: 180px 0 30px 0; 
+    color: #74dac6; 
+    margin:0;
+}
+/* paragraph homepage */
+#slogan{
+    font-family: 'Dancing Script', Arial, Helvetica, sans-serif; 
+    font-size: 50px;
+    color: #fbffa8; 
+    margin: 0;
+    padding: 0 0 50px 0;
+}
+/* homepage hr */
+hr{
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    display: block;
+    max-width: 50px;
+    border-width: 3px;
+    margin-bottom: 30px;
+    border-color: #74dac6;
+}
+/* BUTTONS GLOBAL*/
+.button{
+    margin-right: 20px;
+    width: 100px;
+    background: #74dac6;
+    border: 0;
+    padding: 20px;
+    border-radius: 300px;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+.button:hover{
+    background: #00818a;
+    font-weight: bold;
+}
+/* buttons homepage */
+
+.button a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* SIGNIN PAGE*/
+.signin{
+    position: relative;
+    margin:0;
+}
+.signin h1{
+    padding: 0;
+}
+/* login wrapper for sign in page*/
+.container .wrapper{
+    width: 60%;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 100px 100px 10px 100px;
+    margin: auto;
+    box-sizing: border-box;
+    margin-top: 100px; 
+    box-shadow: -1px -1px 58px 2px rgba(0,129,138,1);  
+}
+.container .wrapper p{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 136px;
+}
+.container .wrapper p a{
+    text-decoration: none;
+    color: #00818a;
+}
+.container .wrapper p a:hover{
+    color: #74dac6;
+}
+/* signin-form class*/
+.signin-form button{
+    display: block;
+    
+}
+/* INPUTS GLOBAL*/
+
+
+.input input{
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: #f4f4f4;
+    border-color: transparent;
+    height: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.signin-submit .button{
+    margin: auto;
+    margin-top: 20px;
+    width: 220px;
+}
+
+/* SIGN UP PAGE*/
+.signup h1{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.signup-submit button{
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 220px;
+}
+.container .wrapper{
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+.container .wrapper .signup p{
+    padding-top: 20px;
+    font-size: 15px;
+}
+.container .wrapper .signin p{
+    padding-top: 20px;
+    font-size: 15px;
+}
+
+
+/* NEW DIARY ENTRY */
+.container .wrapper .holder{
+    width: 100%;
+    margin: 0;
+}
+.container .wrapper{
+    padding-left: 20px;
+}
+.side-menu{
+    padding: 0;
+    margin: 0;
+    width: 20%;
+    margin: 0;
+    margin-right: 100px;
+    float: left;
+}
+.side-menu h1{
+    font-size: 30px;
+    margin:0;
+    padding: 0 0 0 10px;
+    text-align: left;
+}
+.entry-form{
+    width: 50%;
+    margin: 0;
+    float: left;
+}
+.holder{
+    clear: both;
+}
+
+.side-menu li{
+    list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    text-align: left; 
+    padding-top: 20px; 
+    
+} 
+.side-menu ul{
+    padding:0 0 0 0;
+    width: 100px;
+    margin: 0px; 
+}
+.side-menu li a{
+    text-decoration: none;
+    color: #00818a;
+}
+.side-menu li a:hover{
+    font-weight: bold;
+    color: #000000;
+}
+
+.entry-form h1{
+    font-size: 30px;
+    margin:0;
+    padding: 0 0 0 10px;
+    width: 200px;
+}
+#text-area{
+    padding: 0;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 50px;
+}
+.entry-form .button{
+    width: 120px;
+}
+.entry-form .button:hover:nth-of-type(2){
+    background-color: red;
+}
+
+/* DIARY ENTRIES TABLE */
+table.entriestable {
+    border: 1px solid #00818a;
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+table.entriestable td{
+    border: 1px solid #AAAAAA;
+    padding: 3px 2px;
+}
+table.entriestable  td {
+    font-size: 16px;
+    color: #333333;
+    padding: 10px;
+    overflow: hidden;
+}
+table.entriestable  td a{
+    text-decoration: none;
+    color: #00818a;
+}
+table.entriestable  td a:hover{
+    font-weight: bold;
+    color: #000000;
+}
+/* USER PROFILE */
+.profile h1{
+    font-size: 30px;
+    padding: 0;   
+}
+.profile{
+    width: 50%;
+    text-align: left;
+    float: left;
+}
+.profile form{
+    margin: 0;
+    clear: both;
+}
+.profile div{
+    margin-top: 20px;
+}
+div.input label{
+    margin-top: 20px;
+}
+.container .wrapper .profile a.button{
+  margin-top: 20px;      
+}
+.profile .button:hover:nth-of-type(2){
+    background-color: red;
+}
+.user-button{
+    padding-top:10px;
+}
+/* VIEW ENTRY */
+.view-entry{
+    width: 50%;
+    float: left;
+}
+.view-entry h1{
+    font-size: 30px;
+    padding: 0;
+    margin:0;
+}
+.container .wrapper .view-entry p{
+    clear: both;
+    padding-top: 15px;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+
+/* MEDIA QUERIES */
+@media(max-width: 890px){
+    
+.container h1 {
+    font-size: 30px;
+}
+p#slogan{
+    font-size: 30px;
+}
+button.button, .signup-submit button,.entry-form .button, .signin-submit .button {
+    width: 60%;
+    margin-top: 15px;
+    font-size: 12px;
+    border-radius: 50px;
+}
+textarea#text-area{
+    width: 100%;
+}
+.input input{
+    width:60%;
+}
+}
