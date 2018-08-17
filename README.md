@@ -69,4 +69,4 @@ View on postman<br>
 
 # Heroku
 The app is live on heroku with the link below:<br>
-https://my-diary-v2.herokuapp.com/api/v1
+https://andela-diaryapi.herokuapp.com/
