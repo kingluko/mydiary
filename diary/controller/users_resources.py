@@ -22,24 +22,24 @@ class SignupResource(Resource):
         'name',
         required=True,
         trim=True,
-        help='Enter a Valid Name')
+        help='Name is required')
     parser.add_argument(
         'email',
         required=True,
         type=inputs.regex(
             r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"),
-        help='Enter a Valid Email!')
+        help='Email is required')
     parser.add_argument(
         'username',
         required=True,
         trim=True,
         type=inputs.regex(r"(^[A-Za-z0-9-]+$)"),
-        help='Enter a valid username!')
+        help='Username is required')
     parser.add_argument(
         'password',
         required=True,
         trim=True,
-        help='Enter a valid password!')
+        help='Password is required')
 
     def post(self):
         # parses arguments
@@ -47,13 +47,12 @@ class SignupResource(Resource):
         name = results.get('name')
         username = results.get('username')
         password = results.get('password')
-        email = results.get('email')
+        email = results.get('email')        
         # Validate on entry
         if len(username) < 4:
             return {'message': 'Username cannot be less than 4'}, 400
         if len(password) < 6:
             return {'message': 'Password cannot be less than 6'}, 400
-
         # Check if email exists on db
         db.query("SELECT * FROM users WHERE email = %s OR username = %s", [email, username])
         data = db.cur.fetchone()
