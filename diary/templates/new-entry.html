@@ -24,23 +24,25 @@
             <!--DIARY ENTRY FORM -->
             <div class="entry-form">
                 <h1>New Entry</h1>
-                <form action="">
+                <div id="message">
+                    <p id="display-message"></p>
+                </div>
+                <form action="">                                          
                     <div class="input">
-                        <input type="text" placeholder="Title">
+                        <input type="text" placeholder="Title" name="title">
                     </div>
+                    <br>
+                    <br>                 
                     <div class="input">
-                        <input type="date" name="" id="entry-date" maxlength="60">
+                        <textarea name="story" id="text-area" cols="40" rows="20" placeholder="Enter your Story..."></textarea>
                     </div>
-                    <div class="input">
-                        <textarea name="diary-entry" id="text-area" cols="40" rows="20" placeholder="Enter your Story..."></textarea>
-                    </div>
-                    <a href="" class="button">Add Story</a>
+                    <a href="" class="button add-entry">Add Story</a>
                     <a href="" class="button">Discard</a>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
+<script src="../static/js/new_entry.js"></script>
 </body>
 </html>
