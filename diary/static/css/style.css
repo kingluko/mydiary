@@ -18,6 +18,9 @@ body{
     margin: auto;
     text-align: center;    
 }
+#message p{
+    padding-top: 0;
+}
 /* HOMEPAGE*/
 /* heading */
 .container h1{
