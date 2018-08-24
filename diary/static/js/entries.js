@@ -15,21 +15,21 @@ fetch('https://andela-diaryapi.herokuapp.com/api/v1/entries', {
         let entriesTable = document.querySelector('.entriestable');
 
         // Create tables to displat entries        
-        if (data.message != 'Entries not found'){
+        if (data.message != 'Entries not found' || data.message === 'Token is invalid'){
             let rows = '';
             for (let i = 0; i < entries.length; i++) {
                 const entry = entries[i];
                 var row = `<tr>
                     <td>${entry.title}</td>
                     <td><a href="#" onclick="viewEntry(${entry.entry_id})">View</a></td>
-                    <td><a href="new-entry.html">Modify</a></td>
+                    <td><a href="update_entry.html" onclick="updateEntry(${entry.entry_id}, '${entry.title}', \`${entry.story}\`)">Modify</a></td>
                     <td><a href="">Delete</a></td>
                     </tr>`;
                 rows += row;
             }
             entriesTable.innerHTML = rows;
         }
-        console.log(data);        
+        // console.log(data);        
     });
 
 function viewEntry(entry_id) {
@@ -55,4 +55,10 @@ function viewEntry(entry_id) {
             window.location.replace('view_entry.html');
         })
         .catch(error => console.log(error));
+}
+
+function updateEntry(entry_id, title, story) {
+    localStorage.setItem('update_entryid', entry_id);
+    localStorage.setItem('update_title', title);
+    localStorage.setItem('update_story', story);        
 }
