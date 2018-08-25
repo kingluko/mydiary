@@ -64,7 +64,7 @@ function updateEntry(entry_id, title, story) {
 }
 
 function deleteEntry(entry_id, title) {    
-    let result = window.confirm('Are you sure you want to delete Title: '+ title + '?');
+    let result = window.confirm('Are you sure you want to delete'+ title + '?');
     if (result){
         let url = 'https://andela-diaryapi.herokuapp.com/api/v1/entries/'+entry_id;
         fetch(url, {
