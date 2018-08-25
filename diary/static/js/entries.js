@@ -23,7 +23,7 @@ fetch('https://andela-diaryapi.herokuapp.com/api/v1/entries', {
                     <td>${entry.title}</td>
                     <td><a href="#" onclick="viewEntry(${entry.entry_id})">View</a></td>
                     <td><a href="update_entry.html" onclick="updateEntry(${entry.entry_id}, '${entry.title}', \`${entry.story}\`)">Modify</a></td>
-                    <td><a href="">Delete</a></td>
+                    <td><a href="#" onclick="deleteEntry(${entry.entry_id}, '${entry.title}')">Delete</a></td>
                     </tr>`;
                 rows += row;
             }
@@ -61,4 +61,23 @@ function updateEntry(entry_id, title, story) {
     localStorage.setItem('update_entryid', entry_id);
     localStorage.setItem('update_title', title);
     localStorage.setItem('update_story', story);        
+}
+
+function deleteEntry(entry_id, title) {    
+    let result = window.confirm('Are you sure you want to delete'+ title + '?');
+    if (result){
+        let url = 'https://andela-diaryapi.herokuapp.com/api/v1/entries/'+entry_id;
+        fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'x-access-token': token,
+                'content-type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                window.location.reload();
+            });
+    }    
 }
