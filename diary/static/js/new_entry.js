@@ -17,6 +17,7 @@ function addEntry(event){
         .then((data) => {
             let message = data.message;
             document.querySelector('#display-message').innerHTML = message;
+            window.location.replace('diary-entries.html');
         })
         .catch(error => console.log(error));
     document.querySelector('input[name=title]').value = '';
