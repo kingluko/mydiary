@@ -7,11 +7,9 @@ from diary.models.db import DbConnection
 from diary.models.entries_model import Entries
 from diary.models.users_model import Users
 from config import Config
+from .decorator import is_logged_in
 
 db = DbConnection()
-
-# TODO
-# Include sectet key
 
 
 class SignupResource(Resource):
@@ -109,3 +107,29 @@ class SigninResource(Resource):
             db.close()
         else:
             return {'message': 'Please enter login details'}
+
+
+class UserProfile(Resource):
+    """This class returns the user details"""
+    parser = reqparse.RequestParser()
+    parser.add_argument(
+        'reminder',
+        trim=True
+        )
+    
+    @is_logged_in
+    def get(self, user_id):
+        # gets user details
+        user_details = Entries.user_details(user_id)
+        return user_details
+
+    @is_logged_in
+    def post(self, user_id):
+        # fetches if eminder is set 
+        results = UserProfile.parser.parse_args()
+        reminder = results.get('reminder')
+        if reminder:
+            return {'message': 'To add email'}
+        else:
+            return {'message': 'You will not receive daily notifications'}
+        
