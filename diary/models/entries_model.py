@@ -38,6 +38,19 @@ class Entries:
             return entry
 
     @staticmethod
+    def user_details(user_id):
+        db.query(
+            "SELECT * FROM users WHERE id = %s", [user_id]
+        )
+        details = db.cur.fetchall()
+        display_details = {
+            'name': details[0][1],
+            'email': details[0][2],
+            'username': details[0][3]
+            }
+        return display_details
+
+    @staticmethod
     def make_dict(entry_list):
         """This method creates a list of dictionary entries """
         entries = []
@@ -54,3 +67,5 @@ class Entries:
             # appends the list with entry dictionaries
             entries.append(new_dict)
         return entries
+
+    
