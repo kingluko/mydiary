@@ -18,3 +18,5 @@ class Users:
             # stores the instance for each user
             "INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)",
             (self.name, self.email, self.username, self.password))
+
+    

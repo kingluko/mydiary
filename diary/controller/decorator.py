@@ -30,4 +30,3 @@ def is_logged_in(f):
         # passes user_id through each wrapped funtion
         return f(user_id=user_id, *args, **kwargs)
     return decorated_function
-

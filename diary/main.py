@@ -21,13 +21,14 @@ def create_app(configuration):
     api = Api(app)
 
     from .controller.entries_resource import AllEntries, SingleEntry
-    from .controller.users_resources import SigninResource, SignupResource
+    from .controller.users_resources import SigninResource, SignupResource, UserProfile
 
     # Defines methods for resources
     api.add_resource(SignupResource, '/api/v1/auth/signup')
     api.add_resource(SigninResource, '/api/v1/auth/signin')
     api.add_resource(AllEntries, '/api/v1/entries')
     api.add_resource(SingleEntry, '/api/v1/entries/<int:entry_id>')
+    api.add_resource(UserProfile, '/api/v1/profile')
 
     # runs the application
     return app
