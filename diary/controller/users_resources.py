@@ -120,9 +120,11 @@ class UserProfile(Resource):
     @is_logged_in
     def get(self, user_id):
         # gets user details
-        user_details = Entries.user_details(user_id)
+        user_details = Users.user_details(user_id)
         return user_details
 
+    # TODO
+    # Add reminder field to database
     @is_logged_in
     def post(self, user_id):
         # fetches if eminder is set 

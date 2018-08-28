@@ -35,20 +35,7 @@ class Entries:
                 "SELECT * FROM entries WHERE user_id = %s", [user_id]
             )
             entry = db.cur.fetchall()
-            return entry
-
-    @staticmethod
-    def user_details(user_id):
-        db.query(
-            "SELECT * FROM users WHERE id = %s", [user_id]
-        )
-        details = db.cur.fetchall()
-        display_details = {
-            'name': details[0][1],
-            'email': details[0][2],
-            'username': details[0][3]
-            }
-        return display_details
+            return entry   
 
     @staticmethod
     def make_dict(entry_list):
