@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Chela+One|Dancing+Script" rel="stylesheet">
     <title>User Profile</title>
+    <script src="../static/js/profile.js"></script>
 </head>
 <body>
 <div class="container">
@@ -27,19 +28,19 @@
                 <h1>User Profile</h1>
                 <form action="">
                     <div class="input">
-                        <label for="First name">First Name: </label>
-                        <input type="text" placeholder="First Name" >
+                        <label for="name">Name: </label>
+                        <input type="text" placeholder="Name" disabled name="name">
                     </div>
                     <div class="input">
-                        <label for="second name">Second Name: </label>
-                        <input type="text" placeholder="Last Name">
+                        <label for="Username">Username: </label>
+                        <input type="text" placeholder="Username" disabled name="username">
                     </div>
                     <div class="input">
                         <label for="email">Email: </label>
-                        <input type="email" placeholder="me@email.com" disabled>
+                        <input type="email" placeholder="me@email.com" disabled name="email">
                     </div>
                     <div class="input">
-                        <span>You have had 3 entries so far</span>
+                        <span>You have <b><span id="total_entries"></span></b> entries so far</span>
                     </div>
                     <div class="input">
                         <label for="reminder settings">Enable Daily Reminders</label>
