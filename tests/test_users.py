@@ -115,3 +115,30 @@ class TestSignIn(BaseTestCase):
                 content_type='application/json')
         rp = json.loads(rs.data)
         self.assertIn('token', str(rp))
+        
+
+class TestProfile(BaseTestCase):
+    """This class tests the endpoint functionality"""
+    def test_get_profile_details(self):
+        # sign up
+        self.client.post(
+            signup_url,
+            data=json.dumps(self.signup_data),
+            content_type='application/json')
+        # sign in
+        rs = self.client.post(
+                signin_url,
+                data=json.dumps(self.signin_data),
+                content_type='application/json')
+        rp = json.loads(rs.get_data(as_text=True))
+        token = rp.get("token")
+        header = {
+            "Content-Type": "application/json",
+            "x-access-token": token}
+        response = self.client.get(
+            '/api/v1/profile',
+            content_type='application/json',
+            headers=header)
+        data = json.loads(response.data)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('Test Data', str(data))
