@@ -20,24 +20,25 @@ class SignupResource(Resource):
         'name',
         required=True,
         trim=True,
-        help='Name is required')
+        type=inputs.regex(r"([a-zA-Z\-]+)\s+([a-zA-Z\-]+)"),
+        help='Valid names are required')
     parser.add_argument(
         'email',
         required=True,
         type=inputs.regex(
             r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"),
-        help='Email is required')
+        help='A valid email is required')
     parser.add_argument(
         'username',
         required=True,
         trim=True,
         type=inputs.regex(r"(^[A-Za-z0-9-]+$)"),
-        help='Username is required')
+        help='A valid username is required')
     parser.add_argument(
         'password',
         required=True,
         trim=True,
-        help='Password is required')
+        help='A valid password is required')
 
     def post(self):
         # parses arguments
@@ -45,7 +46,7 @@ class SignupResource(Resource):
         name = results.get('name')
         username = results.get('username')
         password = results.get('password')
-        email = results.get('email')        
+        email = results.get('email')                   
         # Validate on entry
         if len(username) < 4:
             return {'message': 'Username cannot be less than 4'}, 400
