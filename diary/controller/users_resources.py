@@ -44,7 +44,7 @@ class SignupResource(Resource):
         # parses arguments
         results = SignupResource.parser.parse_args()
         name = results.get('name')
-        username = results.get('username')
+        username = results.get('username').lower()
         password = results.get('password')
         email = results.get('email')                   
         # Validate on entry
@@ -82,7 +82,7 @@ class SigninResource(Resource):
 
     def post(self):
         results = SigninResource.parser.parse_args()
-        username = results.get('username')
+        username = results.get('username').lower()
         password_entered = results.get('password')
         if username and password_entered:
                 # check if the username exists
