@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# nyc test coverage
+.nyc_output
+
 # Distribution / packaging
 .Python
 build/
