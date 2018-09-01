@@ -34,7 +34,8 @@ class DbConnection():
     def create_tables(self):
         self.query("""CREATE TABLE IF NOT EXISTS users(id serial PRIMARY KEY,
                      name VARCHAR(100), email VARCHAR(100),
-                     username VARCHAR(30), password VARCHAR(100));""")
+                     username VARCHAR(30), password VARCHAR(100),
+                     reminder BOOLEAN DEFAULT 'false');""")
         self.query("""CREATE TABLE IF NOT EXISTS entries(entry_id serial,
                      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
                      title VARCHAR(200),
