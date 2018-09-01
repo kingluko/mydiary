@@ -1,6 +1,9 @@
 from passlib.hash import sha256_crypt
 from diary.models.db import DbConnection
 from diary.models.entries_model import Entries
+from diary.models.mail import send_email
+import schedule
+import time
 
 db = DbConnection()
 
@@ -32,7 +35,21 @@ class Users:
             'name': details[0][1],
             'email': details[0][2],
             'username': details[0][3],
-            'total_entries': len(entries)
+            'total_entries': len(entries),
+            'reminder': details[0][5]
             }
         return display_details
-    
+
+    @staticmethod
+    def add_reminder(user_id, reminder):
+        """This method adds an reminder notification to the profile"""
+        db.query(
+           "UPDATE users SET reminder=%s WHERE id=%s",
+           (reminder, user_id)
+           )
+        user_details = Users.user_details(user_id)
+        if reminder == 'true':
+            schedule.every(2).minutes.do(send_email, (user_details['email']))
+            while True:
+                schedule.run_pending()
+                time.sleep(1)
