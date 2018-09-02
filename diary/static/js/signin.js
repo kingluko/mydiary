@@ -1,7 +1,7 @@
 document.querySelector('.signin-form').addEventListener('submit', signIn)
 
 function signIn (event) {
-    event.preventDefault()
+    event.preventDefault();
     fetch('https://andela-diaryapi.herokuapp.com/api/v1/auth/signin', {
         method: 'POST',
         body: JSON.stringify({
