@@ -24,7 +24,7 @@ function addReminder(){
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'Access-Control-Allow-Headers': 'Content-Type',
+            // 'Access-Control-Allow-Headers': 'Content-Type',
             'x-access-token': token
         },
         body: JSON.stringify({
