@@ -1,6 +1,11 @@
 from passlib.hash import sha256_crypt
 from diary.models.db import DbConnection
 from diary.models.entries_model import Entries
+from diary.models.mail import send_email
+import time
+from apscheduler.schedulers.background import BackgroundScheduler
+
+sched = BackgroundScheduler()
 
 db = DbConnection()
 
@@ -32,7 +37,25 @@ class Users:
             'name': details[0][1],
             'email': details[0][2],
             'username': details[0][3],
-            'total_entries': len(entries)
+            'total_entries': len(entries),
+            'reminder': details[0][5]
             }
         return display_details
-    
+
+    @staticmethod
+    def add_reminder(user_id, reminder):
+        """This method adds an reminder notification to the profile"""
+        db.query(
+           "UPDATE users SET reminder=%s WHERE id=%s",
+           (reminder, user_id)
+           )
+
+    @staticmethod
+    @sched.scheduled_job('interval', hours=24)
+    def schedule_email():
+        db.query("SELECT * FROM users WHERE reminder='true'")
+        users = db.cur.fetchall()
+        for user in users:
+            email = str(list(user)[2])
+            send_email(email)
+    sched.start()

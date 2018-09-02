@@ -9,6 +9,7 @@ from diary.models.users_model import Users
 from config import Config
 from .decorator import is_logged_in
 
+
 db = DbConnection()
 
 
@@ -117,22 +118,20 @@ class UserProfile(Resource):
         'reminder',
         trim=True
         )
-    
+
     @is_logged_in
     def get(self, user_id):
         # gets user details
         user_details = Users.user_details(user_id)
         return user_details
-
-    # TODO
-    # Add reminder field to database
+   
     @is_logged_in
     def post(self, user_id):
-        # fetches if eminder is set 
+        # fetches if eminder is set
         results = UserProfile.parser.parse_args()
-        reminder = results.get('reminder')
-        if reminder:
-            return {'message': 'To add email'}
-        else:
+        reminder = results.get('reminder').lower()
+        Users.add_reminder(user_id, reminder)
+        if reminder == 'true':
+            return {'message': 'You will receive daily notifications'}
+        elif reminder == 'false':
             return {'message': 'You will not receive daily notifications'}
-        

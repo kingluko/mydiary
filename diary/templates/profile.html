@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Chela+One|Dancing+Script" rel="stylesheet">
     <title>User Profile</title>
-    <script src="../static/js/profile.js"></script>
+    
 </head>
 <body>
 <div class="container">
@@ -44,10 +44,10 @@
                     </div>
                     <div class="input">
                         <label for="reminder settings">Enable Daily Reminders</label>
-                        <input type="checkbox" name="reminder" id="reminder" value="True">
+                        <input type="checkbox" name="reminder" value="true">
                     </div>
                     <div class="user-button">
-                        <a href="" class="button">Save</a>
+                        <a href="javascript:void(0);" class="button" id="add_reminder" onclick="addReminder()">Save</a>
                         <a href="" class="button">Discard</a>
                     </div>
                 </form>
@@ -55,6 +55,6 @@
         </div>
     </div>
 </div>
-
+<script src="../static/js/profile.js"></script>
 </body>
 </html>
