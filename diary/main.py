@@ -13,7 +13,7 @@ def create_app(configuration):
 
     app = Flask(__name__)
     app.config.from_object(app_config[configuration])
-    CORS(app)
+    CORS(app, resources={r'/api/v1/profile': {'origins': '*'}})
     app.config['CORS_HEADERS'] = 'Content-Type'
     # creates tables in the database
     db.create_tables()
