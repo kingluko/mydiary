@@ -8,6 +8,7 @@ from diary.models.entries_model import Entries
 from diary.models.users_model import Users
 from config import Config
 from .decorator import is_logged_in
+from flask import jsonify
 
 
 db = DbConnection()
@@ -123,7 +124,7 @@ class UserProfile(Resource):
     def get(self, user_id):
         # gets user details
         user_details = Users.user_details(user_id)
-        return user_details
+        return jsonify(user_details)
    
     @is_logged_in
     def post(self, user_id):
