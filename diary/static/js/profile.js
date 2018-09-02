@@ -20,19 +20,19 @@ window.onload = function(){
 
 function addReminder(){    
     let reminder = document.querySelector('input[name=reminder]').checked;
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json',
-            'x-access-token': token
-        },
-        body: JSON.stringify({
-            'reminder': reminder
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        });
-    // console.log(reminder)
+    // fetch(url, {
+    //     method: 'POST',
+    //     headers: {
+    //         'content-type': 'application/json',
+    //         'x-access-token': token
+    //     },
+    //     body: JSON.stringify({
+    //         'reminder': reminder
+    //     })
+    // })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         console.log(data);
+    //     });
+    console.log(reminder)
 }
