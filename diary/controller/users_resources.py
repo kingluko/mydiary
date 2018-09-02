@@ -124,7 +124,7 @@ class UserProfile(Resource):
     def get(self, user_id):
         # gets user details
         user_details = Users.user_details(user_id)
-        return jsonify(user_details)
+        return user_details
    
     @is_logged_in
     def post(self, user_id):
