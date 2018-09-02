@@ -124,16 +124,14 @@ class UserProfile(Resource):
         # gets user details
         user_details = Users.user_details(user_id)
         return user_details
-
-    # TODO
-    # Add reminder field to database
+   
     @is_logged_in
     def post(self, user_id):
         # fetches if eminder is set
         results = UserProfile.parser.parse_args()
         reminder = results.get('reminder').lower()
         Users.add_reminder(user_id, reminder)
-        if reminder == 'true':            
+        if reminder == 'true':
             return {'message': 'You will receive daily notifications'}
         elif reminder == 'false':
             return {'message': 'You will not receive daily notifications'}
