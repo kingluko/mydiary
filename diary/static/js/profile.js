@@ -23,7 +23,7 @@ function addReminder(){
     fetch(url, {        
         method: 'POST',
         headers: {
-            'content-type': 'application/json',
+            // 'content-type': 'application/json',
             'x-access-token': token
         },
         body: JSON.stringify({
