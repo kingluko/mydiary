@@ -25,8 +25,11 @@ def send_email(email_address):
     msg['To'] = email_address
     msg['Subject'] = 'Daily Entry Notification'
 
+    # encode character set     
+    msg.set_charset('utf-8')
+
     # adds a message body 
-    msg.attach(MIMEText(message, 'plain'))
+    msg.attach(MIMEText(message, 'plain', 'utf-8'))
 
     # creates email server
     server = smtplib.SMTP('smtp.gmail.com: 587')
