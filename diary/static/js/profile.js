@@ -22,10 +22,11 @@ function addReminder(){
     let reminder = document.querySelector('input[name=reminder]').checked;
     fetch(url, {        
         method: 'POST',
+        mode: 'cors',
         headers: {
             'content-type': 'application/json',
-            // 'Access-Control-Allow-Headers': 'Content-Type',
-            'x-access-token': token
+            'x-access-token': token,            
+            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
             'reminder': reminder
