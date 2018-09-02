@@ -2,9 +2,11 @@ let token = localStorage.getItem('token');
 let url = 'https://andela-diaryapi.herokuapp.com/api/v1/profile';
 window.onload = function(){    
     fetch(url, {
+        mode: 'cors',
         headers: {
             'content-type': 'application/json',
             'x-access-token': token
+            // 'Access-Control-Allow-Origin': '*'
         }
     }) 
         .then(response => response.json())
@@ -21,8 +23,7 @@ window.onload = function(){
 function addReminder(){    
     let reminder = document.querySelector('input[name=reminder]').checked;
     fetch(url, {        
-        method: 'POST',
-        mode: 'cors',
+        method: 'POST',        
         headers: {
             'content-type': 'application/json',
             'x-access-token': token,            
