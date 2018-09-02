@@ -20,8 +20,7 @@ window.onload = function(){
 
 function addReminder(){    
     let reminder = document.querySelector('input[name=reminder]').checked;
-    fetch(url, {
-        mode: 'cors',
+    fetch(url, {        
         method: 'POST',
         headers: {
             'content-type': 'application/json',
