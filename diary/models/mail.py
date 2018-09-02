@@ -44,4 +44,3 @@ def send_email(email_address):
     server.quit()
 
     print('Email sent')
-
