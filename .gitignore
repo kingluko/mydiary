@@ -11,6 +11,9 @@ __pycache__/
 # Dependency directories
 node_modules/
 jspm_packages/
+.eslintrc.js
+package-lock.json
+package.json
 
 # nyc test coverage
 .nyc_output
