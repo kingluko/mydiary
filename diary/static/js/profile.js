@@ -15,7 +15,11 @@ window.onload = function(){
             document.querySelector('input[name=username]').value = data.username;
             document.querySelector('input[name=email]').value = data.email;
             document.querySelector('span#total_entries').innerText = data.total_entries;
-            // console.log(data.name, data.email, data.username, data.total_entries);
+            
+            if (data.reminder === true){
+                document.querySelector('input[name=reminder]').checked = true;
+                console.log('TRUE');
+            }
         })
         .catch(error => console.log(error));
 };
@@ -26,8 +30,8 @@ function addReminder(){
         method: 'POST',        
         headers: {
             'content-type': 'application/json',
-            'x-access-token': token,            
-            'Access-Control-Allow-Origin': '*'
+            'x-access-token': token           
+            
         },
         body: JSON.stringify({
             'reminder': reminder
@@ -37,5 +41,4 @@ function addReminder(){
         .then(data => {
             console.log(data);
         });
-    // console.log(reminder)
 }
