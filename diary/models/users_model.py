@@ -1,7 +1,6 @@
 from passlib.hash import sha256_crypt
 from diary.models.db import DbConnection
 from diary.models.entries_model import Entries
-from diary.models.mail import send_email
 import time
 from apscheduler.schedulers.background import BackgroundScheduler
 
@@ -49,13 +48,3 @@ class Users:
            "UPDATE users SET reminder=%s WHERE id=%s",
            (reminder, user_id)
            )
-
-    @staticmethod
-    @sched.scheduled_job('interval', hours=24)
-    def schedule_email():
-        db.query("SELECT * FROM users WHERE reminder='true'")
-        users = db.cur.fetchall()
-        for user in users:
-            email = str(list(user)[2])
-            send_email(email)
-    sched.start()
