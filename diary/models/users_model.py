@@ -48,5 +48,3 @@ class Users:
            "UPDATE users SET reminder=%s WHERE id=%s",
            (reminder, user_id)
            )
-
-   
