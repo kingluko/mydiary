@@ -14,21 +14,21 @@ fetch('https://andela-diaryapi.herokuapp.com/api/v1/entries', {
         let entries = data.entry;
         let entriesTable = document.querySelector('.entriestable');
 
-        // Create tables to displat entries        
-        if (data.message != 'Entries not found' || data.message === 'Token is invalid'){
-            let rows = '';
-            for (let i = 0; i < entries.length; i++) {
-                const entry = entries[i];
-                var row = `<tr>
-                    <td>${entry.title}</td>
-                    <td><a href="#" onclick="viewEntry(${entry.entry_id})">View</a></td>
-                    <td><a href="update_entry.html" onclick="updateEntry(${entry.entry_id}, '${entry.title}', \`${entry.story}\`)">Modify</a></td>
-                    <td><a href="#" onclick="deleteEntry(${entry.entry_id}, '${entry.title}')">Delete</a></td>
-                    </tr>`;
-                rows += row;
-            }
-            entriesTable.innerHTML = rows;
+        // Create tables to displat entries
+        invalidToken();
+        let rows = '';
+        for (let i = 0; i < entries.length; i++) {
+            const entry = entries[i];
+            var row = `<tr>
+                <td>${entry.title}</td>
+                <td><a href="#" onclick="viewEntry(${entry.entry_id})">View</a></td>
+                <td><a href="update_entry.html" onclick="updateEntry(${entry.entry_id}, '${entry.title}', \`${entry.story}\`)">Modify</a></td>
+                <td><a href="#" onclick="deleteEntry(${entry.entry_id}, '${entry.title}')">Delete</a></td>
+                </tr>`;
+            rows += row;
         }
+        entriesTable.innerHTML = rows;
+        
         // console.log(data);        
     });
 
