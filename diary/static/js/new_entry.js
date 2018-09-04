@@ -19,23 +19,12 @@ function addEntry(event){
             document.querySelector('#display-message').innerHTML = message;
             if (data.message === 'Entry posted successfully'){
                 window.location.replace('diary-entries.html');
-            }            
+            }
         })
         .catch(error => console.log(error));
     document.querySelector('input[name=title]').value = '';
     document.querySelector('#text-area').value = '';
 }
 
-function discardPost(){    
-    let title = document.querySelector('input[name=title]').value;
-    let story = document.querySelector('#text-area').value;
-    if ((!(title)) && (!(story))) {
-        window.location.replace('diary-entries.html');        
-    } else {
-        let result = confirm('Are you sure you want to discard?');
-        if (result){
-            window.location.replace('diary-entries.html');
-        } else {event => event.preventDefault();}       
-    }
-}
+
 
