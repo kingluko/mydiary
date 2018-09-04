@@ -15,7 +15,10 @@ window.onload = function(){
             document.querySelector('input[name=username]').value = data.username;
             document.querySelector('input[name=email]').value = data.email;
             document.querySelector('span#total_entries').innerText = data.total_entries;
-            
+            if (data.total_entries === undefined){
+                alert('Please login!!');
+                window.location.replace('signin.html');
+            }
             if (data.reminder === true){
                 document.querySelector('input[name=reminder]').checked = true;
                 console.log('TRUE');
