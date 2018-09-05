@@ -59,7 +59,7 @@ hr{
     width: 100px;
     background: #74dac6;
     border: 0;
-    padding: 20px;
+    padding: 15px;
     border-radius: 300px;
     text-align: center;
     color: #ffffff;
@@ -129,7 +129,7 @@ hr{
 .signin-submit .button{
     margin: auto;
     margin-top: 20px;
-    width: 220px;
+    width: 170px;
 }
 
 /* SIGN UP PAGE*/
@@ -140,7 +140,7 @@ hr{
 .signup-submit button{
     margin-left: 20px;
     margin-top: 20px;
-    width: 220px;
+    width: 170px;
 }
 .container .wrapper{
     padding-top: 20px;
