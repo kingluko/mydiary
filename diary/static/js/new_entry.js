@@ -1,5 +1,5 @@
 document.querySelector('.add-entry').addEventListener('click', addEntry);
-var token = localStorage.getItem('token');
+let token = localStorage.getItem('token');
 function addEntry(event){
     event.preventDefault();
     fetch('https://andela-diaryapi.herokuapp.com/api/v1/entries', {
@@ -17,7 +17,7 @@ function addEntry(event){
         .then((data) => {
             let message = data.message;
             document.querySelector('#display-message').innerHTML = message;
-            if (data.message === 'Entry posted successfully'){
+            if (message === 'Entry posted successfully'){
                 window.location.replace('diary-entries.html');
             }
         })
