@@ -19,11 +19,12 @@ fetch('https://andela-diaryapi.herokuapp.com/api/v1/entries', {
         let rows = '';
         for (let i = 0; i < entries.length; i++) {
             const entry = entries[i];
-            var row = `<tr>
+            var row = `
+                <tr>
                 <td>${entry.title}</td>
-                <td><a href="#" onclick="viewEntry(${entry.entry_id})">View</a></td>
-                <td><a href="update_entry.html" onclick="updateEntry(${entry.entry_id}, '${entry.title}', \`${entry.story}\`)">Modify</a></td>
-                <td><a href="#" onclick="deleteEntry(${entry.entry_id}, '${entry.title}')">Delete</a></td>
+                <td><a class="button" href="#" onclick="viewEntry(${entry.entry_id})">View</a></td>
+                <td><a class= "button" href="update_entry.html" onclick="updateEntry(${entry.entry_id}, '${entry.title}', \`${entry.story}\`)">Modify</a></td>
+                <td><a class ="button delete" href="#" onclick="deleteEntry(${entry.entry_id}, '${entry.title}')">Delete</a></td>
                 </tr>`;
             rows += row;
         }
