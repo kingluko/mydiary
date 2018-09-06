@@ -250,14 +250,20 @@ table.entriestable  td {
     padding: 10px;
     overflow: hidden;
 }
-table.entriestable  td a{
+table.entriestable  td a.button{
     text-decoration: none;
-    color: #00818a;
+    color: white;
+    padding: 6px;
+    margin: 0;
+}
+table.entriestable  td a.button.delete:hover{
+    background: red;
 }
 table.entriestable  td a:hover{
     font-weight: bold;
     color: #000000;
 }
+
 /* USER PROFILE */
 .profile h1{
     font-size: 30px;
